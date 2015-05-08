@@ -7,14 +7,16 @@ import android.graphics.Rect;
 
 
 public class Sprite {
-    private int maxSpeed= 20;
+    private int maxSpeed= 40;
     private GameView gameView;
     private Bitmap bitmap;
-    private int x, y, xSpeed, ySpeed, width, height, direction, bitmapRows, bitmapColumns, currentFrame;
+    private int x, y, xSpeed, ySpeed, width, height, direction, bitmapRows, bitmapColumns, currentFrame, numberOfFrames;
 
     public Sprite(GameView g, Bitmap b, int r, int c) {
         bitmap = b;
         gameView = g;
+
+        numberOfFrames = 1;
 
         bitmapRows = r;
         bitmapColumns = c;
@@ -23,8 +25,8 @@ public class Sprite {
         height = b.getHeight() / r;
 
         Random rnd = new Random();
-        x = rnd.nextInt(gameView.getWidth() - width);
-        y = rnd.nextInt(gameView.getHeight() - height);
+        //x = rnd.nextInt(gameView.getWidth() - width);
+        //y = rnd.nextInt(gameView.getHeight() - height);
         xSpeed = rnd.nextInt(maxSpeed * 2) - maxSpeed;
         ySpeed = rnd.nextInt(maxSpeed * 2) - maxSpeed;
         currentFrame = rnd.nextInt(c);
@@ -39,7 +41,7 @@ public class Sprite {
             ySpeed = -ySpeed;
         }
         y = y + ySpeed;
-        currentFrame = ++currentFrame % bitmapColumns;
+        currentFrame = ++currentFrame % numberOfFrames;
     }
 
     public void onDraw(Canvas canvas) {
@@ -66,6 +68,16 @@ public class Sprite {
         maxSpeed = s;
     }
 
+    public void setX(int i)
+    {
+        x = i;
+    }
+
+    public void setY(int i)
+    {
+        y = i;
+    }
+
     public void setxSpeed(int s)
     {
         xSpeed = s;
@@ -75,6 +87,17 @@ public class Sprite {
     {
         ySpeed = s;
     }
+
+    public void setCurrentFrame(int i)
+    {
+        currentFrame = i;
+    }
+
+    public void setNumberOfFrames(int i)
+    {
+        numberOfFrames = i;
+    }
+
 
     public int getDirection()
     {
@@ -119,6 +142,16 @@ public class Sprite {
     public GameView getGameView()
     {
         return gameView;
+    }
+
+    public int getCurrentFrame()
+    {
+        return currentFrame;
+    }
+
+    public int getNumberOfFrames()
+    {
+        return numberOfFrames;
     }
 
 

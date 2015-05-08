@@ -10,17 +10,7 @@ public class KingSlime extends Sprite{
     public KingSlime(GameView g, Bitmap b) {
         super(g, b, 4, 13);
         setDirection(1);
+        setNumberOfFrames(7);
     }
-//fix this
-    public void update() {
-        if (getX() >= getGameView().getWidth() - getWidth() - getxSpeed() || getX() + getxSpeed() <= 0) {
-            setxSpeed(-getxSpeed());
-        }
-        x = x + xSpeed;
-        if (getY() >= gameView.getHeight() - height - ySpeed || y + ySpeed <= 0) {
-            ySpeed = -ySpeed;
-        }
-        y = y + ySpeed;
-        currentFrame = ++currentFrame % bitmapColumns;
-    }
+
 }

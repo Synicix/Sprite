@@ -3,7 +3,7 @@ package com.synicix.sprite;
 import android.graphics.Canvas;
 
 public class GameLoopThread extends Thread {
-    static final long FPS = 10;
+    static final long FPS = 100;
     private GameView view;
     private boolean running = false;
 

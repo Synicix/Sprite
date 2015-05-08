@@ -46,11 +46,14 @@ public class GameView extends SurfaceView {
     }
 
     private void createSprites() {
+        sprites.add(new Map(this, BitmapFactory.decodeResource(getResources(), R.drawable.mapone)));
+
         for(int i=0; i<10; i++)
         {
-            sprites.add(new Slime(this,BitmapFactory.decodeResource(getResources(), R.drawable.slime)));
+            //sprites.add(new Slime(this,BitmapFactory.decodeResource(getResources(), R.drawable.slime)));
         }
         sprites.add(new KingSlime(this,BitmapFactory.decodeResource(getResources(), R.drawable.kingslime)));
+        //sprites.add(new Slimes(this, BitmapFactory.decodeResource(getResources(), R.drawable.slimes)));
 
 
 }
